@@ -40,6 +40,7 @@ export function kbVipPay(mpUrl?: string): InlineKeyboardMarkup {
 }
 
 export function kbEncuentros(): InlineKeyboardMarkup {
+  // Teclado base de Encuentros (antes de "Reservar")
   return {
     inline_keyboard: [
       [
@@ -51,7 +52,33 @@ export function kbEncuentros(): InlineKeyboardMarkup {
   };
 }
 
+// Teclado para CUANDO el usuario toca "Reservar":
+// Muestra "Ver precios" + "Link de pago" + "Inicio"
+export function kbEncuentrosReserva(payUrl?: string): InlineKeyboardMarkup {
+  const url = payUrl ?? "";
+  return {
+    inline_keyboard: [
+      [
+        { text: "🕒 Ver precios", callback_data: K.ENC_PRECIOS },
+        { text: "💳 Link de pago", url },
+      ],
+      [{ text: "🏠 Inicio", callback_data: K.HOME }],
+    ],
+  };
+}
+
 // Submenús simples (Sorteo/Virtuales/Eventos) → solo Inicio
 export function kbHomeOnly(): InlineKeyboardMarkup {
   return { inline_keyboard: [[{ text: "🏠 Inicio", callback_data: K.HOME }]] };
+}
+
+// Teclado para Sorteo con Link de pago + Inicio
+export function kbSorteo(payUrl?: string): InlineKeyboardMarkup {
+  const url = payUrl ?? "";
+  return {
+    inline_keyboard: [
+      [{ text: "💳 Link de pago", url }],
+      [{ text: "🏠 Inicio", callback_data: K.HOME }],
+    ],
+  };
 }

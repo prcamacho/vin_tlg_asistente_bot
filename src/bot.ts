@@ -1,17 +1,21 @@
 import { Telegraf } from "telegraf";
 import type { Context } from "telegraf";
-import { Copy, K } from "./flows.js";
+import { Copy, K, LINKS } from "./flows.js";
 import {
   kbRoot,
   kbVipMain,
   kbVipPay,
   kbEncuentros,
+  kbEncuentrosReserva,
   kbHomeOnly,
+  kbSorteo,
 } from "./keyboards.js";
 
 const TOKEN: string = process.env.TELEGRAM_BOT_TOKEN ?? "";
 const ADMIN_CHAT_ID: string = process.env.ADMIN_CHAT_ID ?? "";
-const MP_VIP_LINK: string = process.env.MP_VIP_LINK ?? "";
+const MP_VIP_LINK: string = LINKS.MP_VIP;
+const MP_SORTEO_LINK: string = LINKS.MP_SORTEO;
+const MP_ENC_LINK: string = LINKS.MP_ENC;
 
 if (!TOKEN) throw new Error("Falta TELEGRAM_BOT_TOKEN en .env");
 
@@ -52,6 +56,7 @@ async function sendClean(ctx: Context, text: string, reply_markup?: any) {
   return sent;
 }
 
+// ====== enviar FOTO limpiando antes (URL pública / file_id) ======
 async function sendPhotoClean(
   ctx: Context,
   photoUrl: string,
@@ -85,7 +90,11 @@ export function createBot() {
 
   // Cualquier texto (v1 sin IA) → vuelve al inicio con menú raíz
   bot.on("message", async (ctx) => {
-    await sendClean(ctx, "elegí una opción:", kbRoot());
+    await sendClean(
+      ctx,
+      "Elegí una opción corazón, en caso de querer comunicarte conmigo escribí a @Vin_Salta",
+      kbRoot()
+    );
   });
 
   // Botones (callback_query)
@@ -105,7 +114,6 @@ export function createBot() {
       // ====== Grupo VIP ======
       case K.VIP:
         await ctx.answerCbQuery();
-        // Texto renovado: VIP + catálogo + mejor precio por bot
         await sendClean(ctx, Copy.VIP_INTRO, kbVipMain());
         break;
 
@@ -142,26 +150,28 @@ export function createBot() {
         await sendPhotoClean(
           ctx,
           "https://pub-e21f3877231140e8a453d3e38605acff.r2.dev/tarifas.png",
-          "orientativo de valores:\n30 min → 15k\n45 min → 45k\n1h → 90k\n(se reserva con seña)",
+          "Tarifas Especiales si reservas mediante este bot:\n40 min → 65 mil\n1h → 75mil\n(Te espero con ganas 💋)",
           kbEncuentros()
         );
         break;
 
       case K.ENC_RESERVAR:
         await ctx.answerCbQuery();
+        // Al tocar "Reservar": cambiamos los botones por "Ver precios" + "Link de pago" + "Inicio"
         await sendClean(
           ctx,
-          "para reservar necesito:\n• día y franja horaria\n• zona / barrio\n\nsi querés, te paso alias/MP para la seña.",
-          kbEncuentros()
+          "Para reservar necesito:\n• Día y franja horaria que te gustaria venir\n• Mi dpto esta en Tres Cerritos\n\nHace click en el link de pago y luego pasame comprobante y la info por privado corazón @Vin_Salta",
+          kbEncuentrosReserva(MP_ENC_LINK)
         );
         break;
 
-      // ====== Otros menús (solo Inicio) ======
+      // ====== Sorteo (con Link de pago + Inicio) ======
       case K.SORTEO:
         await ctx.answerCbQuery();
-        await sendClean(ctx, Copy.SORTEO_INTRO, kbHomeOnly());
+        await sendClean(ctx, Copy.SORTEO_INTRO, kbSorteo(MP_SORTEO_LINK));
         break;
 
+      // ====== Otros menús (solo Inicio) ======
       case K.VIRTUALES:
         await ctx.answerCbQuery();
         await sendClean(ctx, Copy.VIRTUALES_INTRO, kbHomeOnly());
