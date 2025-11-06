@@ -26,7 +26,7 @@ export const Copy = {
   • Servicio higienico, y seguro. En mi dpto tengo preservativos y juguetes.
   • Atención a parejas, ella besos, masturbación y juguetes (sin llegar a sexo oral), el todo con protección
   • Ubicación: Tres Cerritos, Salta Capital
-  • NO PIDO ADELANTOS, en caso de querer aprovechar las tarifas especiales del bot o querer un horario especifico, pido seña de $2 mil, de lo contrario atiendo por orden de llegada
+  • NO PIDO ADELANTOS, en caso de querer aprovechar las tarifas especiales del bot o querer un horario especifico, pido seña de $2 mil, de lo contrario atiendo por orden de llegada sin pago previo
   • Atención a domicilio: servicio mínimo: 1 hora, me mandas un uber o me buscas por mi dpto. Fuera de Salta Capital, si o si con transferencia previa por el valor del transporte
   `,
 
