@@ -166,9 +166,15 @@ export function createBot() {
         break;
 
       // ====== Sorteo (con Link de pago + Inicio) ======
+      // ====== Sorteo (con imagen + caption + Link de pago + Inicio) ======
       case K.SORTEO:
         await ctx.answerCbQuery();
-        await sendClean(ctx, Copy.SORTEO_INTRO, kbSorteo(MP_SORTEO_LINK));
+        await sendPhotoClean(
+          ctx,
+          "https://pub-e21f3877231140e8a453d3e38605acff.r2.dev/vin_sorteo.png",
+          Copy.SORTEO_INTRO,
+          kbSorteo(MP_SORTEO_LINK)
+        );
         break;
 
       // ====== Otros menús (solo Inicio) ======
