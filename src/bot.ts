@@ -149,8 +149,8 @@ export function createBot() {
         await ctx.answerCbQuery();
         await sendPhotoClean(
           ctx,
-          "https://pub-e21f3877231140e8a453d3e38605acff.r2.dev/tarifas.png",
-          "Tarifas Especiales si reservas mediante este bot:\n40 min → 65 mil\n1h → 75mil\n(Te espero con ganas 💋)",
+          "https://pub-e21f3877231140e8a453d3e38605acff.r2.dev/tarifas_bot.png",
+          "Tarifas Especiales Unicamente si reservas mediante este bot Corazon\nPodes solo avisar antes de venir y abonar las tarifas regulares\n(Te espero con ganas 💋)",
           kbEncuentros()
         );
         break;
@@ -160,7 +160,7 @@ export function createBot() {
         // Al tocar "Reservar": cambiamos los botones por "Ver precios" + "Link de pago" + "Inicio"
         await sendClean(
           ctx,
-          "Para reservar necesito:\n• Día y franja horaria que te gustaria venir\n• Mi dpto esta en Tres Cerritos\n\nHace click en el link de pago y luego pasame comprobante y la info por privado corazón @Vin_Salta",
+          "Mi dpto esta en Tres Cerritos corazon, la reserva tiene un valor de $2000(2mil)\nPara reservar necesito:\n• Día y franja horaria que te gustaria venir\n\nHace click en el link de pago y luego pasame comprobante y la info por privado porfi al usuario @Vin_Salta",
           kbEncuentrosReserva(MP_ENC_LINK)
         );
         break;

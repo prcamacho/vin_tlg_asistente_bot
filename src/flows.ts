@@ -34,9 +34,8 @@ export const Copy = {
   
   • Valor del número: $5 mil
   • Sorteo: todos los viernes a la noche (23 hs aprox)
-  • Siempre hay al menos un ganador, debe/n ser mayor/es de 18 años
-  • Debe/n cobrar su premio el fin de semana que lo gana/n en mi departamento
-  • Si hay más de un ganador, no es necesario que vengan al mismo tiempo
+  • Siempre hay al menos un ganador, debe ser mayor de 18 años
+  • Debe cobrar su premio el fin de semana que lo gana en mi departamento
   • Hace clic en el link de pago y una vez abonado, enviame un mensaje con el comprobante y el numero elegido a mi usuario:
 
   @Vin_Salta
