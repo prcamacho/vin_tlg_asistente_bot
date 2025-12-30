@@ -16,7 +16,7 @@ export const Copy = {
 
 ¿Querés entrar?`,
 
-  VIP_PAY: `Te dejo el link de pago. Cuando abones, esperá unos segundos y vas a ser redirigido al grupo.`,
+  VIP_PAY: `Precio Regular: $32500 \nTe dejo el link de pago. Cuando abones, esperá unos segundos y vas a ser redirigido al grupo.\nPrecio Especial Bot: $28000`,
 
   ENCUENTROS_INTRO: `Encuentros presenciales (“onda novios”):
   
