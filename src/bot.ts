@@ -158,8 +158,9 @@ export function createBot() {
       case K.ENC_RESERVAR:
         await ctx.answerCbQuery();
         // Al tocar "Reservar": cambiamos los botones por "Ver precios" + "Link de pago" + "Inicio"
-        await sendClean(
+        await sendPhotoClean(
           ctx,
+          "https://pub-e21f3877231140e8a453d3e38605acff.r2.dev/dpto_2026.png",
           "Mi dpto esta en Tres Cerritos corazon, la reserva tiene un valor de $2000(2mil)\nPara reservar necesito:\n• Día y franja horaria que te gustaria venir\n\nHace click en el link de pago y luego pasame comprobante y la info por privado porfi al usuario @Vin_Salta",
           kbEncuentrosReserva(MP_ENC_LINK)
         );
