@@ -149,7 +149,7 @@ export function createBot() {
         await ctx.answerCbQuery();
         await sendPhotoClean(
           ctx,
-          "https://pub-e21f3877231140e8a453d3e38605acff.r2.dev/tarifas_bot.png",
+          "https://pub-e21f3877231140e8a453d3e38605acff.r2.dev/tarifas_bot2.png",
           "Tarifas Especiales Unicamente si reservas mediante este bot Corazon\nPodes solo avisar antes de venir y abonar las tarifas regulares\n(Te espero con ganas 💋)",
           kbEncuentros()
         );
